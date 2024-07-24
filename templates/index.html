@@ -14,7 +14,8 @@
     <canvas id="drawingCanvas" width="500" height="500"></canvas>
     <br>
     <button id="saveButton">Sauvegarder</button>
-
+    <br>
+    <button id="clearButton">Effacer</button>
     <script>
         const canvas = document.getElementById('drawingCanvas');
         const ctx = canvas.getContext('2d');
@@ -46,6 +47,12 @@
             isDrawing = false;
             ctx.beginPath();
         }
+
+	document.getElementById('clearButton').addEventListener('click', clearCanvas);
+        
+	function clearCanvas() {
+    	    ctx.clearRect(0, 0, canvas.width, canvas.height);
+        } 
 
         document.getElementById('saveButton').addEventListener('click', saveImage);
 
